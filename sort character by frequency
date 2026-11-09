@@ -1,0 +1,19 @@
+class Solution(object):
+    def frequencySort(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        freq = {}
+
+        for ch in s:
+            freq[ch] = freq.get(ch, 0) + 1
+
+        result = sorted(freq.keys(), key=lambda x: freq[x], reverse=True)
+
+        ans = ""
+
+        for ch in result:
+            ans += ch * freq[ch]
+
+        return ans
